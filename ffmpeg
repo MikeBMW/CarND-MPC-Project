@@ -1,0 +1,16 @@
+屏幕录像
+	
+#ffmpeg -f x11grab -s xga -r 10 -i :0.0+0+0 wheer.avi   
+#ffmpeg -f x11grab -s 320x240  -r 10 -i :0.0+100+200 wheer.avi
+
+:0:0 表示屏幕（个人理解，因为系统变量$DISPLAY值就是:0.0） 而100,表示距左端100象素，200表示距上端200
+
+-s 设置窗口大小
+
+-r 10 好像是设置频率，不懂
+
+#ffmpeg -f x11grab -s xga-qscale 5-r 10 -i :0.0+0+0 wheer.avi
+
+-qscale 8 设定画面质量，值越小越好
+
+在ffmpeg文件夹下打开终端，输入第一行命令
