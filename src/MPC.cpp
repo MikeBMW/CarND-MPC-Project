@@ -118,8 +118,6 @@ class FG_eval {
       fg[2 + epsi_start + t] =
           epsi1 - ((psi0 - psides0) - v0 * delta0 / Lf * dt);
     }
-
-
   }
 };
 
@@ -153,14 +151,14 @@ vector<double> MPC::Solve(Eigen::VectorXd x0, Eigen::VectorXd coeffs) {
     vars[i] = 0;
   }
   // Set the initial variable values
-/*
+
   vars[x_start] = x;
   vars[y_start] = y;
   vars[psi_start] = psi;
   vars[v_start] = v;
   vars[cte_start] = cte;
   vars[epsi_start] = epsi;
-*/
+
   // Lower and upper limits for x
   Dvector vars_lowerbound(n_vars);
   Dvector vars_upperbound(n_vars);
@@ -177,8 +175,7 @@ vector<double> MPC::Solve(Eigen::VectorXd x0, Eigen::VectorXd coeffs) {
   // NOTE: Feel free to change this to something else.
   for (int i = delta_start; i < a_start; i++) {
     vars_lowerbound[i] = -0.436332;
-    vars_upperbound[i] = 0.436332;
-    
+    vars_upperbound[i] = 0.436332;    
   }
 
   // Acceleration/decceleration upper and lower limits.
